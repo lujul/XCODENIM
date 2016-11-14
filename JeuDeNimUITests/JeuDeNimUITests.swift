@@ -31,6 +31,54 @@ class JeuDeNimUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+    
+        let newGameButton = app.buttons["new-game-button"]
+        let playerLabel = app.staticTexts["current_player"]
+        let matchesLabel = app.staticTexts["matches_count"]
+        
+        XCTAssertFalse(newGameButton.exists, "At launch a new game is autmatically started, the begin button should not be visible")
+        
+        XCTAssertEqual(playerLabel.label, "Joueur 1")
+        XCTAssertEqual(matchesLabel.label, "20")
+        app.buttons["3"].tap()
+        XCTAssertEqual(playerLabel.label, "Joueur 2")
+        XCTAssertEqual(matchesLabel.label, "17")
+        app.buttons["2"].tap()
+        XCTAssertEqual(playerLabel.label, "Joueur 1")
+        XCTAssertEqual(matchesLabel.label, "15")
+        app.buttons["1"].tap()
+        XCTAssertEqual(matchesLabel.label, "14")
+        
+        app.buttons["3"].tap()
+        app.buttons["3"].tap()
+        app.buttons["3"].tap()
+        app.buttons["3"].tap() //2 marches left after this
+        
+        XCTAssertFalse(app.buttons["3"].exists, "This button should not be displayed if there is less than 3 matches left")
+        XCTAssert(app.buttons["2"].exists)
+        XCTAssert(app.buttons["1"].exists)
+        app.buttons["1"].tap()
+        
+        XCTAssertFalse(app.buttons["3"].exists)
+        XCTAssertFalse(app.buttons["2"].exists)
+        XCTAssert(app.buttons["1"].exists)
+        app.buttons["1"].tap()
+        
+        XCTAssertEqual(playerLabel.label, "Joueur 2 a gagné")
+        XCTAssertFalse(app.buttons["3"].exists)
+        XCTAssertFalse(app.buttons["2"].exists)
+        XCTAssertFalse(app.buttons["1"].exists)
+        XCTAssertTrue(newGameButton.exists, "At the end of a game, the new game button should be displayed")
+        
+        newGameButton.tap()
+        XCTAssertFalse(newGameButton.exists, "On click, the button should disappear when the new game starts")
+        XCTAssert(app.buttons["3"].exists)
+        XCTAssert(app.buttons["2"].exists)
+        XCTAssert(app.buttons["1"].exists)
+        XCTAssertEqual(playerLabel.label, "Joueur 1")
+        XCTAssertEqual(matchesLabel.label, "20")
     }
     
 }

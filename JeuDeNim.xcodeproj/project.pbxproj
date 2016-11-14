@@ -14,6 +14,8 @@
 		F89658AC1DD4CA4C00C635CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89658AA1DD4CA4C00C635CB /* LaunchScreen.storyboard */; };
 		F89658B71DD4CA4C00C635CB /* JeuDeNimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658B61DD4CA4C00C635CB /* JeuDeNimTests.swift */; };
 		F89658C21DD4CA4C00C635CB /* JeuDeNimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658C11DD4CA4C00C635CB /* JeuDeNimUITests.swift */; };
+		F89658D01DD4D0B500C635CB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658CF1DD4D0B500C635CB /* Player.swift */; };
+		F89658D11DD4D11100C635CB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658CF1DD4D0B500C635CB /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 		F89658BD1DD4CA4C00C635CB /* JeuDeNimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JeuDeNimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89658C11DD4CA4C00C635CB /* JeuDeNimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuDeNimUITests.swift; sourceTree = "<group>"; };
 		F89658C31DD4CA4C00C635CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F89658CF1DD4D0B500C635CB /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 				F89658A81DD4CA4C00C635CB /* Assets.xcassets */,
 				F89658AA1DD4CA4C00C635CB /* LaunchScreen.storyboard */,
 				F89658AD1DD4CA4C00C635CB /* Info.plist */,
+				F89658CF1DD4D0B500C635CB /* Player.swift */,
 			);
 			path = JeuDeNim;
 			sourceTree = "<group>";
@@ -263,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F89658A41DD4CA4C00C635CB /* ViewController.swift in Sources */,
+				F89658D01DD4D0B500C635CB /* Player.swift in Sources */,
 				F89658A21DD4CA4C00C635CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F89658D11DD4D11100C635CB /* Player.swift in Sources */,
 				F89658B71DD4CA4C00C635CB /* JeuDeNimTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
