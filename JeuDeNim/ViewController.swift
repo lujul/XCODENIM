@@ -9,9 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var _matchesCount:Int = 20
+    
+    let userDefaultsManager:UserDefaults = UserDefaults.standard
+    var _matchesCount:Int!
     var _currentPlayer:String = "Joueur 1"
-
+    
     @IBOutlet weak var ui_newGameButton: UIButton!
     @IBOutlet weak var ui_pick3MatchesButton: UIButton!
     @IBOutlet weak var ui_pick2MatchesButton: UIButton!
@@ -21,12 +23,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initSettings()
+        _matchesCount = userDefaultsManager.integer(forKey: Player.MATCHESCOUNT_KEY)
         beginNewGame()
         
-        let userDefaultsManager:UserDefaults = UserDefaults.standard
-        userDefaultsManager.set(120, forKey: Player.SCORE_KEY)
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        _matchesCount = userDefaultsManager.integer(forKey: Player.MATCHESCOUNT_KEY)
+        ui_matchesCountLabel.text = String(_matchesCount!)
+        beginNewGame()
+        
+    }
+    private func initSettings() {
+        userDefaultsManager.register(defaults: [Player.MATCHESCOUNT_KEY : 20])//init settings
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.(..)
@@ -36,8 +48,8 @@ class ViewController: UIViewController {
     }
     
     private func updateDisplay() {
-        ui_matchesCountLabel.text = "\(_matchesCount)"
-        if _matchesCount <= 0 {
+        ui_matchesCountLabel.text = "\(_matchesCount!)"
+        if _matchesCount! <= 0 {
             ui_currentPlayerLabel.text = "\(_currentPlayer) a gagné"
             ui_newGameButton.isHidden = false
         } else {
@@ -49,7 +61,7 @@ class ViewController: UIViewController {
         ui_pick2MatchesButton.isHidden = _matchesCount < 2
         ui_pick1MatchButton.isHidden = _matchesCount < 1
     }
-
+    
     @IBAction func pickMatches(_ button: UIButton) {
         let matchesToRemove:Int = button.tag
         _matchesCount = _matchesCount - matchesToRemove
@@ -59,12 +71,11 @@ class ViewController: UIViewController {
         } else {
             _currentPlayer = "Joueur 1"
         }
-       
+        
         updateDisplay()
     }
-
+    
     @IBAction func beginNewGame() {
-        _matchesCount = 20
         _currentPlayer = "Joueur 1"
         
         updateDisplay()

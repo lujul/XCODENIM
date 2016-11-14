@@ -9,6 +9,7 @@
 import Foundation
 class Player {
     public static let SCORE_KEY:String = "Score"
+    public static let MATCHESCOUNT_KEY:String = "gameMatchesCount"
     var score:Int = 0
     
     func win()  {

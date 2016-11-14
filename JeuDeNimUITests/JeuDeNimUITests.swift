@@ -9,7 +9,7 @@
 import XCTest
 
 class JeuDeNimUITests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
         
@@ -19,7 +19,7 @@ class JeuDeNimUITests: XCTestCase {
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-
+        
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
@@ -33,12 +33,13 @@ class JeuDeNimUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         let app = XCUIApplication()
-    
+        
         let newGameButton = app.buttons["new-game-button"]
         let playerLabel = app.staticTexts["current_player"]
         let matchesLabel = app.staticTexts["matches_count"]
         
         XCTAssertFalse(newGameButton.exists, "At launch a new game is autmatically started, the begin button should not be visible")
+        
         
         XCTAssertEqual(playerLabel.label, "Joueur 1")
         XCTAssertEqual(matchesLabel.label, "20")
@@ -79,6 +80,24 @@ class JeuDeNimUITests: XCTestCase {
         XCTAssert(app.buttons["1"].exists)
         XCTAssertEqual(playerLabel.label, "Joueur 1")
         XCTAssertEqual(matchesLabel.label, "20")
+    }
+    
+    func settingsTest() {
+        
+        let app = XCUIApplication()
+        let matchCountTextBefore = app.staticTexts["matches_count"]
+        XCTAssertEqual(matchCountTextBefore.label, "20")
+
+        app.buttons["Réglages"].tap()
+        app.sliders["32%"].tap()
+        
+        app.staticTexts["40"].tap()
+        app.buttons["X"].tap()
+        let matchCountTextAfter = app.staticTexts["matches_count"]
+        XCTAssertEqual(matchCountTextAfter.label, "40")
+
+        
+        
     }
     
 }

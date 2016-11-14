@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88966EB01DD9C8C30026AE11 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EAF1DD9C8C30026AE11 /* SettingsViewController.swift */; };
 		F89658A21DD4CA4C00C635CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658A11DD4CA4C00C635CB /* AppDelegate.swift */; };
 		F89658A41DD4CA4C00C635CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658A31DD4CA4C00C635CB /* ViewController.swift */; };
 		F89658A71DD4CA4C00C635CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89658A51DD4CA4C00C635CB /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		88966EAF1DD9C8C30026AE11 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F896589E1DD4CA4C00C635CB /* JeuDeNim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeuDeNim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89658A11DD4CA4C00C635CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F89658A31DD4CA4C00C635CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				F89658AA1DD4CA4C00C635CB /* LaunchScreen.storyboard */,
 				F89658AD1DD4CA4C00C635CB /* Info.plist */,
 				F89658CF1DD4D0B500C635CB /* Player.swift */,
+				88966EAF1DD9C8C30026AE11 /* SettingsViewController.swift */,
 			);
 			path = JeuDeNim;
 			sourceTree = "<group>";
@@ -197,7 +200,7 @@
 				TargetAttributes = {
 					F896589D1DD4CA4C00C635CB = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = SA73FE547W;
+						DevelopmentTeam = G6Z98T43PA;
 						ProvisioningStyle = Automatic;
 					};
 					F89658B11DD4CA4C00C635CB = {
@@ -269,6 +272,7 @@
 				F89658A41DD4CA4C00C635CB /* ViewController.swift in Sources */,
 				F89658D01DD4D0B500C635CB /* Player.swift in Sources */,
 				F89658A21DD4CA4C00C635CB /* AppDelegate.swift in Sources */,
+				88966EB01DD9C8C30026AE11 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,12 +425,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SA73FE547W;
+				DEVELOPMENT_TEAM = G6Z98T43PA;
 				INFOPLIST_FILE = JeuDeNim/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbritto.JeuDeNim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -434,12 +440,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SA73FE547W;
+				DEVELOPMENT_TEAM = G6Z98T43PA;
 				INFOPLIST_FILE = JeuDeNim/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbritto.JeuDeNim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -520,6 +528,7 @@
 				F89658C81DD4CA4C00C635CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F89658C91DD4CA4C00C635CB /* Build configuration list for PBXNativeTarget "JeuDeNimTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +537,7 @@
 				F89658CB1DD4CA4C00C635CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F89658CC1DD4CA4C00C635CB /* Build configuration list for PBXNativeTarget "JeuDeNimUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +546,7 @@
 				F89658CE1DD4CA4C00C635CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
