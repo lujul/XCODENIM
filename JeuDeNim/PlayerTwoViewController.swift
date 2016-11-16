@@ -50,11 +50,6 @@ class PlayerTwoViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         userDefaultsManager.set(Array(pickerData.keys)[row], forKey: Player.PLAYER2_KEY)
     }
     
-    @IBAction func closeButton() {
-        dismiss(animated: true, completion: nil)
-
-    }
-
 
     /*
     // MARK: - Navigation

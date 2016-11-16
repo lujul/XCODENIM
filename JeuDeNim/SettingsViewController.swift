@@ -27,11 +27,8 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func closeSettings() {
-        userDefaultsManager.set(matchesValue.text, forKey: Player.MATCHESCOUNT_KEY) //init settings
-        
-        dismiss(animated: true, completion: nil)
+    override func viewWillDisappear(_ animated: Bool) {
+          userDefaultsManager.set(matchesValue.text, forKey: Player.MATCHESCOUNT_KEY) //init settings
     }
     
     @IBAction func matchesValueChanged(_ sender: UISlider) {

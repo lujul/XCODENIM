@@ -21,6 +21,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         initManager ()
         updateScreen ()
+        newPlayerTextEdit.delegate = self   //set delegate to textfile
         
         // Do any additional setup after loading the view.
     }
@@ -40,8 +41,16 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         if(playerTwo != nil && playerTwo != "none") {
             playerTwoLabel.text = playerTwo
         }
-        if( playerOneLabel.text != ".." && playerTwoLabel.text != "..") {
+        if( playerOneLabel.text != ".." && playerTwoLabel.text != ".." && playerOneLabel.text !=  playerTwoLabel.text ) {
             startButton.isHidden = false
+            
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "Les deux joueurs doivent être differents", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in print("you have pressed the Cancel button")
+            }))
+            // Present the controller
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -49,7 +58,6 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         userDefaultsManager.register(defaults: [Player.PLAYER1_KEY : "none"])
         userDefaultsManager.register(defaults: [Player.PLAYER2_KEY : "none"])
         userDefaultsManager.register(defaults: [Player.PLAYERLIST_KEY : [String:Int]()] )
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,7 +65,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func newPlayerEnterButton() {
+    func savePlayer () {
         var returnValue:[String:Int]? = userDefaultsManager.object(forKey:Player.PLAYERLIST_KEY) as? [String:Int]
         if returnValue != nil && newPlayerTextEdit.text != nil  {
             returnValue![newPlayerTextEdit.text!] = 0
@@ -67,8 +75,44 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
             
         }
         newPlayerTextEdit.resignFirstResponder() //
-        
     }
+    
+    
+    @IBAction func newPlayerEnterButton() {
+        newPlayerTextEdit.resignFirstResponder()
+    }
+    
+    
+    
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        savePlayer()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        newPlayerTextEdit.resignFirstResponder()
+        return true
+    }
+    
+    
+    /*
+     textfield delegate test     */
+    func textField(_ textFieldToChange: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // limit to xx characters
+        let characterCountLimit = 20
+        
+        // We need to figure out how many characters would be in the string after the change happens
+        let startingLength = textFieldToChange.text?.characters.count ?? 0
+        let lengthToAdd = string.characters.count
+        let lengthToReplace = range.length
+        
+        let newLength = startingLength + lengthToAdd - lengthToReplace
+        
+        return newLength <= characterCountLimit
+    }
+    
+    
     
     /*
      // MARK: - Navigation

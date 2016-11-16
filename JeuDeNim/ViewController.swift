@@ -34,48 +34,6 @@ class ViewController: UIViewController {
         playerList = userDefaultsManager.object(forKey: Player.PLAYERLIST_KEY) as! [String : Int]
         initPlayer ()
         self.navigationItem.title = "Jeu de NIM"
-        //cours optionnel
-        
-        let texte:String = "10"
-        
-        let entierSur:Int! = Int(texte) // on passe le benefice de l optionnel
-        print(entierSur)
-
-        
-        let entierPossible:Int? = Int(texte) // avant
-        if entierPossible != nil {
-            let entierCertain:Int = entierPossible!
-            print(entierCertain)
-        }
-        
-        if let entierCertain:Int = Int(texte) { // abbreviation du test optionnel
-            if entierCertain > 0 {
-                print(entierCertain)
-            }
-        }
-        
-        if let entierCertain:Int = Int(texte),
-            entierCertain > 0 // on verifie qu il existe et on utilise pour verifier une autre condition
-        {
-            print(entierCertain)
-        }
-        
-        //fin cours optionnel
-        
-        let ui_textField = UITextField()
-        ui_textField.text = "9"
-        if let text:String = ui_textField.text {
-            if let entier = Int(text) {
-                print(entier)
-            }
-        }
-        if let text = ui_textField.text ,
-            let entier:Int = Int(text),
-            entier > 0 {
-            print(entier)
-        }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,12 +80,15 @@ class ViewController: UIViewController {
             case 1:
                 ui_currentPlayerLabel.text = "\(_playerOne.name) a gagné"
                 _playerOne.win()
+                print("Score \(_playerOne.name) : \(_playerOne.score)")
                 playerList[_playerOne.name] = _playerOne.score
-                
+                savePlayerList()
             case 2:
                 ui_currentPlayerLabel.text = "\(_playerTwo.name) a gagné"
                 _playerTwo.win()
+                print("Score \(_playerTwo.name) : \(_playerTwo.score)")
                 playerList[_playerTwo.name] = _playerTwo.score
+                savePlayerList()
                 
             default:
                 ui_currentPlayerLabel.text = "es ce bien raisonnable ?"

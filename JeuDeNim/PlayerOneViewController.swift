@@ -23,6 +23,11 @@ class PlayerOneViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         pickerData = userDefaultsManager.object(forKey: Player.PLAYERLIST_KEY) as! [String : Int]
         self.picker.reloadAllComponents()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        pickerData = userDefaultsManager.object(forKey: Player.PLAYERLIST_KEY) as! [String : Int]
+        self.picker.reloadAllComponents()
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,10 +56,7 @@ class PlayerOneViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         userDefaultsManager.set(Array(pickerData.keys)[row], forKey: Player.PLAYER1_KEY)
     }
     
-
-    @IBAction func closeButton() {
-        dismiss(animated: true, completion: nil)
-    }
+    
     /*
     // MARK: - Navigation
 

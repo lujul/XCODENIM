@@ -13,6 +13,8 @@
 		88966EB21DDB30630026AE11 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EB11DDB30630026AE11 /* EntryViewController.swift */; };
 		88966EB41DDB330B0026AE11 /* PlayerOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EB31DDB330B0026AE11 /* PlayerOneViewController.swift */; };
 		88966EB51DDB330B0026AE11 /* PlayerOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EB31DDB330B0026AE11 /* PlayerOneViewController.swift */; };
+		88D07E621DDC9D9500D1FB0C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658CF1DD4D0B500C635CB /* Player.swift */; };
+		88D07E631DDC9DA600D1FB0C /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EB11DDB30630026AE11 /* EntryViewController.swift */; };
 		F89658A21DD4CA4C00C635CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658A11DD4CA4C00C635CB /* AppDelegate.swift */; };
 		F89658A41DD4CA4C00C635CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658A31DD4CA4C00C635CB /* ViewController.swift */; };
 		F89658A71DD4CA4C00C635CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89658A51DD4CA4C00C635CB /* Main.storyboard */; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88D07E651DDCAD4500D1FB0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F89658CF1DD4D0B500C635CB /* Player.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F89658951DD4CA4C00C635CB = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 		F89658A01DD4CA4C00C635CB /* JeuDeNim */ = {
 			isa = PBXGroup;
 			children = (
+				88D07E651DDCAD4500D1FB0C /* Model */,
 				F89658A11DD4CA4C00C635CB /* AppDelegate.swift */,
 				F89658A31DD4CA4C00C635CB /* ViewController.swift */,
 				F89658A51DD4CA4C00C635CB /* Main.storyboard */,
@@ -119,7 +130,6 @@
 				F89658A81DD4CA4C00C635CB /* Assets.xcassets */,
 				F89658AA1DD4CA4C00C635CB /* LaunchScreen.storyboard */,
 				F89658AD1DD4CA4C00C635CB /* Info.plist */,
-				F89658CF1DD4D0B500C635CB /* Player.swift */,
 				88966EAF1DD9C8C30026AE11 /* SettingsViewController.swift */,
 			);
 			path = JeuDeNim;
@@ -303,6 +313,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D07E621DDC9D9500D1FB0C /* Player.swift in Sources */,
+				88D07E631DDC9DA600D1FB0C /* EntryViewController.swift in Sources */,
 				88966EB51DDB330B0026AE11 /* PlayerOneViewController.swift in Sources */,
 				F89658C21DD4CA4C00C635CB /* JeuDeNimUITests.swift in Sources */,
 				882D3C831DDC4DCF0014CF58 /* PlayerTwoViewController.swift in Sources */,
