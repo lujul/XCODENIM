@@ -80,14 +80,10 @@ class JeuDeNimUITests: XCTestCase {
         XCTAssert(app.buttons["1"].exists)
         XCTAssertEqual(playerLabel.label, "Joueur 1")
         XCTAssertEqual(matchesLabel.label, "20")
-    }
-    
-    func settingsTest() {
         
-        let app = XCUIApplication()
         let matchCountTextBefore = app.staticTexts["matches_count"]
         XCTAssertEqual(matchCountTextBefore.label, "20")
-
+        
         app.buttons["Réglages"].tap()
         app.sliders["32%"].tap()
         
@@ -96,8 +92,8 @@ class JeuDeNimUITests: XCTestCase {
         let matchCountTextAfter = app.staticTexts["matches_count"]
         XCTAssertEqual(matchCountTextAfter.label, "40")
 
-        
-        
     }
+    
+  
     
 }

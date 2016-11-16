@@ -24,7 +24,7 @@ class JeuDeNimTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let p:Player = Player()
+        let p:Player = Player(name: "toto")
         XCTAssertEqual(p.score, 0)
         p.win()
         XCTAssertEqual(p.score, 10)

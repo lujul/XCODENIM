@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		882D3C821DDC4DCF0014CF58 /* PlayerTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D3C811DDC4DCF0014CF58 /* PlayerTwoViewController.swift */; };
+		882D3C831DDC4DCF0014CF58 /* PlayerTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D3C811DDC4DCF0014CF58 /* PlayerTwoViewController.swift */; };
 		88966EB01DD9C8C30026AE11 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EAF1DD9C8C30026AE11 /* SettingsViewController.swift */; };
+		88966EB21DDB30630026AE11 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EB11DDB30630026AE11 /* EntryViewController.swift */; };
+		88966EB41DDB330B0026AE11 /* PlayerOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EB31DDB330B0026AE11 /* PlayerOneViewController.swift */; };
+		88966EB51DDB330B0026AE11 /* PlayerOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966EB31DDB330B0026AE11 /* PlayerOneViewController.swift */; };
 		F89658A21DD4CA4C00C635CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658A11DD4CA4C00C635CB /* AppDelegate.swift */; };
 		F89658A41DD4CA4C00C635CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89658A31DD4CA4C00C635CB /* ViewController.swift */; };
 		F89658A71DD4CA4C00C635CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89658A51DD4CA4C00C635CB /* Main.storyboard */; };
@@ -37,7 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		882D3C811DDC4DCF0014CF58 /* PlayerTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTwoViewController.swift; sourceTree = "<group>"; };
 		88966EAF1DD9C8C30026AE11 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		88966EB11DDB30630026AE11 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		88966EB31DDB330B0026AE11 /* PlayerOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOneViewController.swift; sourceTree = "<group>"; };
 		F896589E1DD4CA4C00C635CB /* JeuDeNim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeuDeNim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89658A11DD4CA4C00C635CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F89658A31DD4CA4C00C635CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +113,9 @@
 				F89658A11DD4CA4C00C635CB /* AppDelegate.swift */,
 				F89658A31DD4CA4C00C635CB /* ViewController.swift */,
 				F89658A51DD4CA4C00C635CB /* Main.storyboard */,
+				882D3C811DDC4DCF0014CF58 /* PlayerTwoViewController.swift */,
+				88966EB31DDB330B0026AE11 /* PlayerOneViewController.swift */,
+				88966EB11DDB30630026AE11 /* EntryViewController.swift */,
 				F89658A81DD4CA4C00C635CB /* Assets.xcassets */,
 				F89658AA1DD4CA4C00C635CB /* LaunchScreen.storyboard */,
 				F89658AD1DD4CA4C00C635CB /* Info.plist */,
@@ -270,8 +281,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F89658A41DD4CA4C00C635CB /* ViewController.swift in Sources */,
+				88966EB21DDB30630026AE11 /* EntryViewController.swift in Sources */,
 				F89658D01DD4D0B500C635CB /* Player.swift in Sources */,
 				F89658A21DD4CA4C00C635CB /* AppDelegate.swift in Sources */,
+				88966EB41DDB330B0026AE11 /* PlayerOneViewController.swift in Sources */,
+				882D3C821DDC4DCF0014CF58 /* PlayerTwoViewController.swift in Sources */,
 				88966EB01DD9C8C30026AE11 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +303,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88966EB51DDB330B0026AE11 /* PlayerOneViewController.swift in Sources */,
 				F89658C21DD4CA4C00C635CB /* JeuDeNimUITests.swift in Sources */,
+				882D3C831DDC4DCF0014CF58 /* PlayerTwoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +474,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = SA73FE547W;
 				INFOPLIST_FILE = JeuDeNimTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbritto.JeuDeNimTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -473,6 +490,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = SA73FE547W;
 				INFOPLIST_FILE = JeuDeNimTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbritto.JeuDeNimTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -487,6 +505,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = SA73FE547W;
 				INFOPLIST_FILE = JeuDeNimUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbritto.JeuDeNimUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,6 +520,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = SA73FE547W;
 				INFOPLIST_FILE = JeuDeNimUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mbritto.JeuDeNimUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

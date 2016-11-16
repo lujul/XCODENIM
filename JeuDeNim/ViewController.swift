@@ -12,8 +12,12 @@ import UIKit
 class ViewController: UIViewController {
     
     let userDefaultsManager:UserDefaults = UserDefaults.standard
+    
     var _matchesCount:Int!
-    var _currentPlayer:String = "Joueur 1"
+    var _currentPlayerPosition:Int = 1
+    var _playerOne:Player = Player(name:"Joueur1")
+    var _playerTwo:Player = Player(name:"Joueur2")
+    var playerList: [String: Int] = [String:Int]()
     
     @IBOutlet weak var ui_newGameButton: UIButton!
     @IBOutlet weak var ui_pick3MatchesButton: UIButton!
@@ -27,6 +31,50 @@ class ViewController: UIViewController {
         initSettings()
         _matchesCount = userDefaultsManager.integer(forKey: Player.MATCHESCOUNT_KEY)
         beginNewGame()
+        playerList = userDefaultsManager.object(forKey: Player.PLAYERLIST_KEY) as! [String : Int]
+        initPlayer ()
+        self.navigationItem.title = "Jeu de NIM"
+        //cours optionnel
+        
+        let texte:String = "10"
+        
+        let entierSur:Int! = Int(texte) // on passe le benefice de l optionnel
+        print(entierSur)
+
+        
+        let entierPossible:Int? = Int(texte) // avant
+        if entierPossible != nil {
+            let entierCertain:Int = entierPossible!
+            print(entierCertain)
+        }
+        
+        if let entierCertain:Int = Int(texte) { // abbreviation du test optionnel
+            if entierCertain > 0 {
+                print(entierCertain)
+            }
+        }
+        
+        if let entierCertain:Int = Int(texte),
+            entierCertain > 0 // on verifie qu il existe et on utilise pour verifier une autre condition
+        {
+            print(entierCertain)
+        }
+        
+        //fin cours optionnel
+        
+        let ui_textField = UITextField()
+        ui_textField.text = "9"
+        if let text:String = ui_textField.text {
+            if let entier = Int(text) {
+                print(entier)
+            }
+        }
+        if let text = ui_textField.text ,
+            let entier:Int = Int(text),
+            entier > 0 {
+            print(entier)
+        }
+        
         
     }
     
@@ -34,7 +82,19 @@ class ViewController: UIViewController {
         _matchesCount = userDefaultsManager.integer(forKey: Player.MATCHESCOUNT_KEY)
         ui_matchesCountLabel.text = String(_matchesCount!)
         beginNewGame()
+        playerList = userDefaultsManager.object(forKey: Player.PLAYERLIST_KEY) as! [String : Int]
+        initPlayer ()
         
+    }
+    private func initPlayer () {
+        let playerOne:String? = userDefaultsManager.object(forKey: Player.PLAYER1_KEY) as? String
+        let playerTwo:String? = userDefaultsManager.object(forKey: Player.PLAYER2_KEY) as? String
+        if playerOne != nil {
+            _playerOne.name = playerOne!
+        }
+        if playerTwo != nil {
+            _playerTwo.name = playerTwo!
+        }
     }
     private func initSettings() {
         userDefaultsManager.register(defaults: [Player.MATCHESCOUNT_KEY : 20])//init settings
@@ -48,13 +108,41 @@ class ViewController: UIViewController {
         ui_currentPlayerLabel.text = "Score : \(score)"
     }
     
-    private func updateDisplay() {
+    private func savePlayerList() {
+        userDefaultsManager.set(playerList, forKey: Player.PLAYERLIST_KEY)
+    }
+    
+    func updateDisplay() {
         ui_matchesCountLabel.text = "\(_matchesCount!)"
         if _matchesCount! <= 0 {
-            ui_currentPlayerLabel.text = "\(_currentPlayer) a gagné"
+            
+            let playerOnePosition:Int = _playerOne.position
+            
+            switch playerOnePosition {
+            case 1:
+                ui_currentPlayerLabel.text = "\(_playerOne.name) a gagné"
+                _playerOne.win()
+                playerList[_playerOne.name] = _playerOne.score
+                
+            case 2:
+                ui_currentPlayerLabel.text = "\(_playerTwo.name) a gagné"
+                _playerTwo.win()
+                playerList[_playerTwo.name] = _playerTwo.score
+                
+            default:
+                ui_currentPlayerLabel.text = "es ce bien raisonnable ?"
+                
+            }
             ui_newGameButton.isHidden = false
         } else {
-            ui_currentPlayerLabel.text = _currentPlayer
+            if _playerOne.position == 1 {
+                ui_currentPlayerLabel.text = _playerOne.name
+                
+            }
+            if _playerOne.position == 2 {
+                ui_currentPlayerLabel.text = _playerTwo.name
+                
+            }
             ui_newGameButton.isHidden = true
         }
         
@@ -67,17 +155,24 @@ class ViewController: UIViewController {
         let matchesToRemove:Int = button.tag
         _matchesCount = _matchesCount - matchesToRemove
         _matchesCount = max(_matchesCount, 0)
-        if _currentPlayer == "Joueur 1" {
-            _currentPlayer = "Joueur 2"
+        if _playerOne.position == 1 {
+            _playerOne.position = 2
+            _playerTwo.position = 1
         } else {
-            _currentPlayer = "Joueur 1"
+            _playerOne.position = 1
+            _playerTwo.position = 2
         }
-        
         updateDisplay()
+        //        ui_currentPlayerLabel.text = "Chargement"
+        //        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: false)
+        
     }
     
     @IBAction func beginNewGame() {
-        _currentPlayer = "Joueur 1"
+        _playerOne.position = 1
+        _playerTwo.position = 2
+        ui_newGameButton.isHidden = true
+        _matchesCount = userDefaultsManager.integer(forKey: Player.MATCHESCOUNT_KEY)
         
         updateDisplay()
     }
