@@ -7,27 +7,16 @@
 //
 
 import Foundation
-class Player {
+class Player : Equatable {
     public static let SCORE_KEY:String = "Score"
     public static let MATCHESCOUNT_KEY:String = "gameMatchesCount"
     public static let PLAYER1_KEY:String = "player1"
     public static let PLAYER2_KEY:String = "player2"
     public static let PLAYERLIST_KEY:String = "playerList"
-
-
+    
+    
     private var _name:String
-    private var _position:Int = 1 //default first
-    var _score:Int = 0
-    
-    
-    init( name:String){
-        self._name = name
-    }
-
-    func win()  {
-        _score += 10
-    }
-    
+    private var _position:Int = 1 //default 
     var position:Int {
         get {
             return _position
@@ -37,6 +26,24 @@ class Player {
         }
         
     }
+    var _score:Int = 0
+    var playedGames:Int = 0
+    
+    init( name:String){
+        self._name = name
+    }
+    
+    func win()  {
+        _score += 10
+        playedGames += 1
+    }
+    
+    func loss() {
+        _score -= 5
+        _score = max(0,_score)
+        playedGames += 1
+    }
+    
     var name:String {
         get {
             return _name
@@ -45,10 +52,14 @@ class Player {
             self._name = newValue
         }
     }
+    
     var score:Int {
         get {
             return _score
         }
     }
-
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs._name == rhs.name
+    }
+    
 }
